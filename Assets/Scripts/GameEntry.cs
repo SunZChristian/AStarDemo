@@ -147,7 +147,9 @@ public class GameEntry : MonoBehaviour
         List<Plot> closeList = new List<Plot>();
 
         //把起点放入openlist
-        openList.Add(startPoint.GetComponent<Plot>());
+        var startPlot = startPoint.GetComponent<Plot>();
+        startPlot.H = CalculateH(startPlot);
+        openList.Add(startPlot);
 
         bool findPath = false;
         while (openList.Count > 0)
@@ -267,7 +269,7 @@ public class GameEntry : MonoBehaviour
         if (path == null)
             path = new List<Plot>();
 
-        for (int i = 0; i < path.Count; i++)
+        for (int i = 1; i < path.Count-1; i++)
         {
             path[i].SetPlotState(EOperateType.Null);
         }

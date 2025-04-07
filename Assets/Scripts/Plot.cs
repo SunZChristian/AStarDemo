@@ -23,7 +23,7 @@ public class Plot : MonoBehaviour
 
     public void SetPlotState(GameEntry.EOperateType eOperateType)
     {
-        if (eOperateType == GameEntry.EOperateType.Null)
+        if (eOperateType == GameEntry.EOperateType.Null || eOperateType == GameEntry.EOperateType.Reset)
         {
             isObstacle = false;
             plotRenderer.color = Color.white;
